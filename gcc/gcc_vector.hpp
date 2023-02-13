@@ -57,7 +57,7 @@ public:
   _Vector_alloc_base(const allocator_type& __a)
     : _M_data_allocator(__a), _M_start(0), _M_finish(0), _M_end_of_storage(0) 
   {}
-  
+   
 protected:
   allocator_type _M_data_allocator;
   _Tp* _M_start;
@@ -113,7 +113,7 @@ struct _Vector_base
   }
 
   ~_Vector_base() { _M_deallocate(_M_start, _M_end_of_storage - _M_start); }
-};    
+};
 
 #else /* __STL_USE_STD_ALLOCATORS */
 
@@ -140,7 +140,6 @@ protected:
   _Tp* _M_finish;
   _Tp* _M_end_of_storage;
 
-  typedef simple_alloc<_Tp, _Alloc> _M_data_allocator;
   _Tp* _M_allocate(size_t __n)
     { return _M_data_allocator::allocate(__n); }
   void _M_deallocate(_Tp* __p, size_t __n) 
