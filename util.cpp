@@ -2,6 +2,11 @@
 
 namespace ft {
 
+template <bool B, class T = void> struct enable_if {};
+template <typename T> struct enable_if<true, T> {
+  typedef T type;
+};
+
 template <typename _Tp> struct remove_const {
   typedef _Tp type;
 };
